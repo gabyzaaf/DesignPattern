@@ -72,7 +72,7 @@ namespace MouseTools
                 int width = nodes.GetLength(1);
                 for (int i = 0; i < height; i++)
                 {
-                    for (int j = 0; j < width-1; j++)
+                    for (int j = 0; j < width -1 ; j++)
                     {
                         nodes[i, j] = new Node(i, j,array[i][j]);
                     }
