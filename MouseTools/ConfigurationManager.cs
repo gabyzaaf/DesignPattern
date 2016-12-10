@@ -35,6 +35,6 @@ namespace MouseTools
         public abstract string[] GetArray();
         public abstract Node[,] GetNodeArray();
 
-        
+       
     }
 }
