@@ -20,19 +20,23 @@ namespace MouseTools
             height = iheight;
             width = iwidth;
             value = svalue;
-            if (successor == null)
-            {
-                successor = new List<Node>();
-            }
-           
+            init_List();
+
         }
 
         public Node(int iheight, int iwidth)
         {
             height = iheight;
             width = iwidth;
-         
-            successor = new List<Node>();
+            init_List();
+        }
+
+        private void init_List()
+        {
+            if (successor == null)
+            {
+                successor = new List<Node>();
+            }
         }
 
 

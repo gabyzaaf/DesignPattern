@@ -9,7 +9,7 @@ namespace MouseTools
     public  abstract class ConfigurationManager
     {
         protected Dictionary<string, string> dicos;
-
+        #region LOAD_DICO
         public ConfigurationManager()
         {
             if (dicos==null) {
@@ -25,6 +25,7 @@ namespace MouseTools
                 }
             }
         }
+        #endregion
 
         public int GetDicoSize()
         {

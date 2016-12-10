@@ -9,6 +9,8 @@ namespace MouseTools
         const char root = 'R';
         const char arrived = 'A';
 
+
+        #region LOG_PATH
         public override string GetLog()
         {
             if (!dicos.ContainsKey("log"))
@@ -32,7 +34,9 @@ namespace MouseTools
                 }
             }
         }
+        #endregion
 
+        #region CREATE_STRING_ARRAY
         public override string[] GetArray()
         {
             if (!dicos.ContainsKey("file"))
@@ -61,7 +65,9 @@ namespace MouseTools
             }
             return lines;
         }
+        #endregion
 
+        #region CREATE_CHECK_NODE_ARRAY
         public override Node[,] GetNodeArray()
         {
             Node[,] nodes = null;
@@ -123,6 +129,7 @@ namespace MouseTools
             }
             
         }
+        #endregion
     }
 
 }

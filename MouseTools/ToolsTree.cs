@@ -35,6 +35,7 @@ namespace MouseTools
             return null;
         }
 
+        #region GET_LEFT_RIGHT_TOP_DOWN
         public Node GetLeft(int height,int width)
         {
             int arrayHeight = nodes.GetLength(0);
@@ -119,5 +120,6 @@ namespace MouseTools
             }
             return node;
         }
+        #endregion
     }
 }
