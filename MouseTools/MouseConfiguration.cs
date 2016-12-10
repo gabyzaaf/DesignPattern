@@ -6,7 +6,7 @@ namespace MouseTools
     public class MouseConfiguration : ConfigurationManager
     {
         const char star = '*';
-
+        const char root = 'R';
         public override string GetLog()
         {
             if (!dicos.ContainsKey("log"))
@@ -75,7 +75,31 @@ namespace MouseTools
                 }
                 i++;
             }
+            CheckOneRoot(nodes);
             return nodes;
         }
+
+        private void CheckOneRoot(Node[,] array)
+        {
+           
+                int foundRoot = 0;
+                for (int i = 0; i < array.GetLength(0); i++)
+                {
+                    for (int j = 0; j < array.GetLength(1) - 1; j++)
+                    {
+                        if (array[i, j].value == root)
+                        {
+                            foundRoot++;
+                        }
+                    }
+                }
+                if (foundRoot != 1)
+                {
+                throw new Exception(String.Format("You need to have only on root point in your array {0} ",root));
+                }
+            }
+        }
+
+
     }
-}
+

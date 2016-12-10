@@ -20,7 +20,11 @@ namespace MouseTools
             height = iheight;
             width = iwidth;
             value = svalue;
-            successor = new List<Node>();
+            if (successor == null)
+            {
+                successor = new List<Node>();
+            }
+           
         }
 
         public Node(int iheight, int iwidth)
