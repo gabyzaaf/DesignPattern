@@ -5,33 +5,33 @@ namespace MouseTools
 {
     public class MouseConfiguration : ConfigurationManager
     {
-        const char star = '*';
-        const char root = 'R';
-        const char arrived = 'A';
+        private const char star = '*';
+        private const char root = 'R';
+        private const char arrived = 'A';
+        private const string logPath = "log";
+        private const string filePath = "file";
 
-
+        
         #region LOG_PATH
         public override string GetLog()
         {
-            if (!dicos.ContainsKey("log"))
+            if (!settingsByKeys.ContainsKey(logPath))
             {
                 throw new Exception("the dictionnary don't contains the key log ");
             }
-            if (String.IsNullOrEmpty(dicos["log"]))
+            if (String.IsNullOrEmpty(settingsByKeys[logPath]))
             {
                 throw new Exception("The log values not exist ");
             }
+            
+            string log = settingsByKeys[logPath];
+            if (!Directory.Exists(log))
+            {
+                throw new Exception("the directory not exist ");
+            }
             else
             {
-                string log = dicos["log"];
-                if (!Directory.Exists(log))
-                {
-                    throw new Exception("the directory not exist ");
-                }
-                else
-                {
-                    return log;
-                }
+                return log;
             }
         }
         #endregion
@@ -39,20 +39,19 @@ namespace MouseTools
         #region CREATE_STRING_ARRAY
         public override string[] GetArray()
         {
-            if (!dicos.ContainsKey("file"))
+            if (!settingsByKeys.ContainsKey(filePath))
             {
-                throw new Exception("the dictionnary don't contains the key file ");
+                throw new Exception("the dictionnary doesn't contains the key file ");
             }
-            if (String.IsNullOrEmpty(dicos["file"]))
+            if (String.IsNullOrEmpty(settingsByKeys[filePath]))
             {
                 throw new Exception("the value from the key file in the dictionnary is null or empty  ");
             }
-            string file = dicos["file"];
+            string file = settingsByKeys[filePath];
             string[] lines = File.ReadAllLines(file);
-            int size = lines.Count();
-            if (size == 0)
+            if (lines == null || lines.Count() == 0)
             {
-                throw new Exception("the file don't contain value inside");
+                throw new Exception("the file doesn't contain value inside");
             }
             int sizeLine = 0;
             foreach (string value in lines)
@@ -60,7 +59,7 @@ namespace MouseTools
                 sizeLine = value.Count();
                 if (value[0] != star || value[sizeLine - 1] != star)
                 {
-                    throw new Exception("The wall is not identic ");
+                    throw new Exception("No wall in border");
                 }
             }
             return lines;
@@ -84,50 +83,28 @@ namespace MouseTools
                 }
                 i++;
             }
-            CheckOneRoot(nodes);
-            CheckArrived(nodes);
+            CheckValue(nodes, root);
+            CheckValue(nodes, arrived);
             return nodes;
         }
 
-        private void CheckOneRoot(Node[,] array)
+        private void CheckValue(Node[,] array, char value)
         {
-
-            int foundRoot = 0;
+            int foundValue = 0;
             for (int i = 0; i < array.GetLength(0); i++)
             {
                 for (int j = 0; j < array.GetLength(1) - 1; j++)
                 {
-                    if (array[i, j].value == root)
+                    if (array[i, j].Value == value)
                     {
-                        foundRoot++;
+                        foundValue++;
                     }
                 }
             }
-            if (foundRoot != 1)
+            if (foundValue != 1)
             {
-                throw new Exception(String.Format("You need to have only on root point in your array {0} ", root));
+                throw new Exception(String.Format("You need to have only {0} in your array  ", value));
             }
-        }
-
-
-        private void CheckArrived(Node[,] array)
-        {
-            int foundArrived = 0;
-            for (int i = 0; i < array.GetLength(0); i++)
-            {
-                for (int j = 0; j < array.GetLength(1) - 1; j++)
-                {
-                    if (array[i, j].value == arrived)
-                    {
-                        foundArrived++;
-                    }
-                }
-            }
-            if (foundArrived != 1)
-            {
-                throw new Exception(String.Format("the array need to be with single arrived {0}",arrived));
-            }
-            
         }
         #endregion
     }

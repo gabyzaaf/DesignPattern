@@ -16,17 +16,15 @@ namespace MouseTools
             nodes = nodeArray;
         }
 
-
         public Tuple<int,int> GetRootPosition()
         {
-
             int height = nodes.GetLength(0);
             int width = nodes.GetLength(1);
             for (int i=0;i<height;i++)
             {
                 for (int j = 0;j<width;j++)
                 {
-                    if (nodes[i,j].value==root)
+                    if (nodes[i,j].Value==root)
                     {
                         return new Tuple<int, int>(i, j);
                     }
@@ -51,7 +49,7 @@ namespace MouseTools
                 return null;
             }
             Node node = nodes[height, (width - 1)];
-            if (node.value=='*')
+            if (node.Value=='*')
             {
                 return null;
             }
@@ -72,7 +70,7 @@ namespace MouseTools
                 return null;
             }
             Node node = nodes[height, (width + 1)];
-            if (node.value == '*')
+            if (node.Value == '*')
             {
                 return null;
             }
@@ -93,7 +91,7 @@ namespace MouseTools
                 return null;
             }
             Node node = nodes[height-1, width];
-            if (node.value == '*')
+            if (node.Value == '*')
             {
                 return null;
             }
@@ -114,12 +112,89 @@ namespace MouseTools
                 return null;
             }
             Node node = nodes[height + 1, width];
-            if (node.value == '*')
+            if (node.Value == '*')
             {
                 return null;
             }
             return node;
         }
         #endregion
+
+
+        #region DIJKSTRA_ALGO
+        private  Node CreateMousePath()
+        {
+            List<Node> pathList = new List<Node>();
+            Tuple<int, int> coordonate = GetRootPosition();
+            if (coordonate==null)
+            {
+                throw new Exception("The root node is null ");
+            }
+            int height = coordonate.Item1;
+            int width = coordonate.Item2;
+            pathList.Add(nodes[height, width]);
+            while (pathList.Count!=0)
+            {
+                Node current = pathList[0];
+                if (current.Visited==false)
+                {
+                    if (current.Value=='A')
+                    {
+                        Console.WriteLine("foundElement");
+                        return current;
+
+                    }
+                    current.Visited = true;
+                    Node right = GetRight(current.Height,current.Width);
+                    if (right!=null && right.Visited==false)
+                    {
+                        current.Successor.Add(right);
+                        right.Predecessor = current;
+                        pathList.Add(right);
+                    }
+                    Node left = GetLeft(current.Height, current.Width);
+                    if (left != null && left.Visited==false)
+                    {
+                        current.Successor.Add(left);
+                        left.Predecessor = current;
+                        pathList.Add(left);
+                    }
+
+                    Node top = GetTop(current.Height,current.Width);
+                    if (top != null && top.Visited == false)
+                    {
+                        current.Successor.Add(top);
+                        top.Predecessor = current;
+                        pathList.Add(top);
+                    }
+
+                    Node down = GetDown(current.Height, current.Width);
+                    if (down != null && down.Visited == false)
+                    {
+                        current.Successor.Add(down);
+                        down.Predecessor = current;
+                        pathList.Add(down);
+                    }
+                }
+                pathList.RemoveAt(0);
+            }
+            return null;
+        }
+        #endregion
+
+        public List<Node> GetPathList()
+        {
+            List<Node> pathList = new List<Node>();
+            Node path = CreateMousePath();
+            while (path.Value!=root)
+            {
+               pathList.Add(path);
+                path = path.Predecessor;
+            }
+            pathList.Add(path);
+            pathList.Reverse();
+            return pathList;
+           
+        }
     }
 }

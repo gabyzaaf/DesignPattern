@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MouseTools;
+using System.Collections.Generic;
 
 namespace unitTest
 {
@@ -34,7 +35,7 @@ namespace unitTest
         public void ShouldInstanciatedNode()
         {
             Node node = new Node(3,5,'t');
-            Assert.IsNotNull(node.successor);
+            Assert.IsNotNull(node.Successor);
         }
 
         [TestMethod]
@@ -53,9 +54,7 @@ namespace unitTest
             Assert.IsNotNull(configuration);
             Node[,] nodeArray = configuration.GetNodeArray();
             Assert.IsNotNull(nodeArray);
-           // Assert.AreEqual(nodeArray.GetLength(0), 4);
-           // Assert.AreEqual(nodeArray.GetLength(1), 10);
-        }
+         }
 
    
 
@@ -71,65 +70,17 @@ namespace unitTest
             Assert.AreNotEqual(tuple.Item1, 0);
             Assert.AreNotEqual(tuple.Item2, 0);
         }
+       
+       
 
         [TestMethod]
-        public void ShouldValidateTheHeightAndWidth()
+        public void ShouldListAllThePath()
         {
             ConfigurationManager configuration = Wrapper.GetConfiguration("mouse");
-            Assert.IsNotNull(configuration);
             Node[,] nodeArray = configuration.GetNodeArray();
             ToolsTree tools = new ToolsTree(nodeArray);
-            Tuple<int,int> hightWeight =  tools.GetRootPosition();
-            Node node = tools.GetLeft(hightWeight.Item1, hightWeight.Item2);
-            Assert.IsNotNull(node);
-            Assert.AreEqual(node.value, 'V');
-        }
-
-        [TestMethod]
-
-        public void ShouldGetLeftNodeInArray()
-        {
-            ConfigurationManager configuration = Wrapper.GetConfiguration("mouse");
-            Assert.IsNotNull(configuration);
-            Node[,] nodeArray = configuration.GetNodeArray();
-            ToolsTree tools = new ToolsTree(nodeArray);
-            Tuple<int, int> hightWeight = tools.GetRootPosition();
-            Node node = tools.GetLeft(hightWeight.Item1,hightWeight.Item2);
-            Assert.AreEqual(node.value, 'V');
-        }
-        [TestMethod]
-        public void ShouldGetRightNodeInArray()
-        {
-            ConfigurationManager configuration = Wrapper.GetConfiguration("mouse");
-            Assert.IsNotNull(configuration);
-            Node[,] nodeArray = configuration.GetNodeArray();
-            ToolsTree tools = new ToolsTree(nodeArray);
-            Tuple<int, int> hightWeight = tools.GetRootPosition();
-            Node node = tools.GetRight(hightWeight.Item1, hightWeight.Item2);
-            Assert.AreEqual(node.value, 'L');
-        }
-        [TestMethod]
-        public void ShouldGetTopNodeInArray()
-        {
-            ConfigurationManager configuration = Wrapper.GetConfiguration("mouse");
-            Assert.IsNotNull(configuration);
-            Node[,] nodeArray = configuration.GetNodeArray();
-            ToolsTree tools = new ToolsTree(nodeArray);
-            Tuple<int, int> hightWeight = tools.GetRootPosition();
-            Node node = tools.GetTop(hightWeight.Item1, hightWeight.Item2);
-            Assert.AreEqual(node.value, 'T');
-        }
-
-        [TestMethod]
-        public void ShouldGetDownNodeInArray(){
-            ConfigurationManager configuration = Wrapper.GetConfiguration("mouse");
-            Assert.IsNotNull(configuration);
-            Node[,] nodeArray = configuration.GetNodeArray();
-            ToolsTree tools = new ToolsTree(nodeArray);
-            Tuple<int, int> hightWeight = tools.GetRootPosition();
-            Node node = tools.GetDown(hightWeight.Item1, hightWeight.Item2);
-            Assert.AreEqual(node.value, 'D');
-
+            List<Node> listeNode = tools.GetPathList();
+            Assert.IsNotNull(listeNode);
         }
     }
 }
