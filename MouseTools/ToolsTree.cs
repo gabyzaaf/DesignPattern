@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MouseTools.Strategy;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -49,7 +50,7 @@ namespace MouseTools
                 return null;
             }
             Node node = nodes[height, (width - 1)];
-            if (node.Value=='*')
+            if (node.Value=='*' || node.Visited)
             {
                 return null;
             }
@@ -70,7 +71,7 @@ namespace MouseTools
                 return null;
             }
             Node node = nodes[height, (width + 1)];
-            if (node.Value == '*')
+            if (node.Value == '*' || node.Visited)
             {
                 return null;
             }
@@ -91,7 +92,7 @@ namespace MouseTools
                 return null;
             }
             Node node = nodes[height-1, width];
-            if (node.Value == '*')
+            if (node.Value == '*' || node.Visited)
             {
                 return null;
             }
@@ -112,7 +113,7 @@ namespace MouseTools
                 return null;
             }
             Node node = nodes[height + 1, width];
-            if (node.Value == '*')
+            if (node.Value == '*' || node.Visited)
             {
                 return null;
             }
@@ -145,31 +146,29 @@ namespace MouseTools
 
                     }
                     current.Visited = true;
-                    Node right = GetRight(current.Height,current.Width);
-                    if (right!=null && right.Visited==false)
+                    Node right = new ChoiceNodeDirection(new Right()).getNode(nodes, current.Height, current.Width);
+                    if (right!=null)
                     {
                         current.Successor.Add(right);
                         right.Predecessor = current;
                         pathList.Add(right);
                     }
-                    Node left = GetLeft(current.Height, current.Width);
-                    if (left != null && left.Visited==false)
+                    Node left = new ChoiceNodeDirection(new Left()).getNode(nodes, current.Height, current.Width);
+                    if (left != null)
                     {
                         current.Successor.Add(left);
                         left.Predecessor = current;
                         pathList.Add(left);
                     }
-
-                    Node top = GetTop(current.Height,current.Width);
-                    if (top != null && top.Visited == false)
+                    Node top = new ChoiceNodeDirection(new Top()).getNode(nodes, current.Height, current.Width);
+                    if (top != null )
                     {
                         current.Successor.Add(top);
                         top.Predecessor = current;
                         pathList.Add(top);
                     }
-
-                    Node down = GetDown(current.Height, current.Width);
-                    if (down != null && down.Visited == false)
+                    Node down = new ChoiceNodeDirection(new Down()).getNode(nodes, current.Height, current.Width);
+                    if (down != null)
                     {
                         current.Successor.Add(down);
                         down.Predecessor = current;
@@ -186,6 +185,10 @@ namespace MouseTools
         {
             List<Node> pathList = new List<Node>();
             Node path = CreateMousePath();
+            if (path == null)
+            {
+                return null;
+            }
             while (path.Value!=root)
             {
                pathList.Add(path);

@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MouseTools;
 using System.Collections.Generic;
+using MouseTools.Strategy;
 
 namespace unitTest
 {
@@ -72,6 +73,20 @@ namespace unitTest
         }
        
        
+
+        
+
+        [TestMethod]
+        public void ShouldReturnRightNodeWithStrategyPattern()
+        {
+            ConfigurationManager configuration = Wrapper.GetConfiguration("mouse");
+            Node[,] nodeArray = configuration.GetNodeArray();
+            ToolsTree tools = new ToolsTree(nodeArray);
+            Tuple<int,int> rootPosition =  tools.GetRootPosition();
+            ChoiceNodeDirection choice = new ChoiceNodeDirection(new Right());
+            Node node = choice.getNode(nodeArray, rootPosition.Item1, rootPosition.Item2);
+            Assert.IsNotNull(node);
+        }
 
         [TestMethod]
         public void ShouldListAllThePath()
