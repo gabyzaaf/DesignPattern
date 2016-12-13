@@ -141,9 +141,7 @@ namespace MouseTools
                 {
                     if (current.Value=='A')
                     {
-                        Console.WriteLine("foundElement");
                         return current;
-
                     }
                     current.Visited = true;
                     Node right = new ChoiceNodeDirection(new Right()).getNode(nodes, current.Height, current.Width);
@@ -184,17 +182,17 @@ namespace MouseTools
         public List<Node> GetPathList()
         {
             List<Node> pathList = new List<Node>();
-            Node path = CreateMousePath();
-            if (path == null)
+            Node finalPath = CreateMousePath();
+            if (finalPath == null)
             {
                 return null;
             }
-            while (path.Value!=root)
+            while (finalPath.Value!=root)
             {
-               pathList.Add(path);
-                path = path.Predecessor;
+                pathList.Add(finalPath);
+                finalPath = finalPath.Predecessor;
             }
-            pathList.Add(path);
+            pathList.Add(finalPath);
             pathList.Reverse();
             return pathList;
            
