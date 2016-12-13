@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="MetroLib.Arc">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAABAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Factory\Arc.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetroLib.Chemin">
+    <Position X="7.5" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAEUAAAAQAAAAAEAAAAAAAAAAAAAkAEAAAABAAAAAA=</HashCode>
+      <FileName>Chemin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetroLib.ElementGraphe">
+    <Position X="2.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAQAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Factory\ElementGraphe.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetroLib.Graphe">
+    <Position X="2.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAEAAAAAAAAAAAgAAAAAAQAIAAACAAAAAAAgAA=</HashCode>
+      <FileName>Factory\Graphe.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetroLib.Ligne">
+    <Position X="10" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAACAAAAAAAQAAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>Ligne.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetroLib.ManagerPlan">
+    <Position X="7.5" Y="4.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACIAAQEAAAAgAEAAAAAAQAJAAAAACQAgAA=</HashCode>
+      <FileName>ManagerPlan.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetroLib.Noeud">
+    <Position X="5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQBAAAABAEAAAAAAAAAAAAAAAACAAAAAAAAAA=</HashCode>
+      <FileName>Factory\Noeud.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetroLib.Station">
+    <Position X="10" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAYAA=</HashCode>
+      <FileName>Station.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
