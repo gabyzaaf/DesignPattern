@@ -16,6 +16,18 @@ namespace MouseTools
             }
         }
 
+
+        public static Log GetLogPath(string type)
+        {
+            if (String.Equals(type, "mouse", StringComparison.OrdinalIgnoreCase))
+            {
+                return GetConfiguration("mouse").GetLog();
+            }
+            else
+            {
+                return null;
+            } 
+        }
         
 
     }

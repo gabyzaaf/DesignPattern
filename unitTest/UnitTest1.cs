@@ -3,6 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MouseTools;
 using System.Collections.Generic;
 using MouseTools.Strategy;
+using MouseTools.Observor;
 
 namespace unitTest
 {
@@ -21,14 +22,6 @@ namespace unitTest
         {
             Assert.IsNotNull(configuration.GetLog());
             
-        }
-
-        [TestMethod]
-        public void ShouldGetArrays()
-        {
-           string[] arr  = configuration.GetArray();
-           int line = arr.GetLength(0);
-           Assert.IsNotNull(arr);
         }
 
         [TestMethod]
@@ -91,6 +84,21 @@ namespace unitTest
             ToolsTree tools = new ToolsTree(nodeArray);
             List<Node> listeNode = tools.GetPathList();
             Assert.IsNotNull(listeNode);
+        }
+
+        [TestMethod]
+        public void ShouldTestTheObservorError()
+        {
+            Subject subject = new Subject("Erreur de lecture de fichier");
+            ErrorLogFile errorLogFile = new ErrorLogFile(subject);
+            subject.NotifyAllObservers();
+        }
+
+        [TestMethod]
+        public void ShouldTestTheLogPath()
+        {
+            ConfigurationManager configuration = Wrapper.GetConfiguration("mouse");
+            Assert.AreEqual(configuration.GetLog().Path, @"C:\Users\Gabriel\Documents\DesignPaternDocument\");
         }
     }
 }

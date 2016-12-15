@@ -42,6 +42,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConfigurationManager.cs" />
+    <Compile Include="Log.cs" />
+    <Compile Include="Observor\ErrorLogFile.cs" />
+    <Compile Include="Observor\Observer.cs" />
+    <Compile Include="Observor\Subject.cs" />
     <Compile Include="Strategy\ChoiceNodeDirection.cs" />
     <Compile Include="Strategy\Down.cs" />
     <Compile Include="Strategy\IgetNode.cs" />

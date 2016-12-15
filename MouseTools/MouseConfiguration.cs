@@ -13,7 +13,7 @@ namespace MouseTools
 
         
         #region LOG_PATH
-        public override string GetLog()
+        public override Log GetLog()
         {
             if (!settingsByKeys.ContainsKey(logPath))
             {
@@ -31,13 +31,13 @@ namespace MouseTools
             }
             else
             {
-                return log;
+                return new Log(log);
             }
         }
         #endregion
 
         #region CREATE_STRING_ARRAY
-        public override string[] GetArray()
+        private  string[] GetArray()
         {
             if (!settingsByKeys.ContainsKey(filePath))
             {

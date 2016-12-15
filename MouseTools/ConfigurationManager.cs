@@ -7,8 +7,8 @@ namespace MouseTools
     public abstract class ConfigurationManager
     {
         protected Dictionary<string, string> settingsByKeys;
-        public abstract string GetLog();
-        public abstract string[] GetArray();
+        public abstract Log GetLog();
+        
         public abstract Node[,] GetNodeArray();
 
         #region LOAD_DICO
@@ -38,4 +38,5 @@ namespace MouseTools
 
        
     }
+
 }
