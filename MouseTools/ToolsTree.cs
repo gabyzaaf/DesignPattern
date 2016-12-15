@@ -11,6 +11,7 @@ namespace MouseTools
     {
         public Node[,] nodes { get; private set; }
         private const char root = 'R';
+        private const char wall = '*';
 
         public ToolsTree(Node[,] nodeArray)
         {
@@ -33,94 +34,6 @@ namespace MouseTools
             }
             return null;
         }
-
-        #region GET_LEFT_RIGHT_TOP_DOWN
-        public Node GetLeft(int height,int width)
-        {
-            int arrayHeight = nodes.GetLength(0);
-            int arrayWidth = nodes.GetLength(1);
-
-            if (width < 0 || width > arrayWidth - 1)
-            {
-                return null;
-            }
-
-            if (width-1<0)
-            {
-                return null;
-            }
-            Node node = nodes[height, (width - 1)];
-            if (node.Value=='*' || node.Visited)
-            {
-                return null;
-            }
-            return node;
-        }
-
-        public Node GetRight(int height, int width)
-        {
-            int arrayHeight = nodes.GetLength(0);
-            int arrayWidth = nodes.GetLength(1);
-
-            if (width < 0 || width > arrayWidth - 1)
-            {
-                return null;
-            }
-            if (width - 1 < 0)
-            {
-                return null;
-            }
-            Node node = nodes[height, (width + 1)];
-            if (node.Value == '*' || node.Visited)
-            {
-                return null;
-            }
-            return node;
-        }
-
-        public Node GetTop(int height, int width)
-        {
-            int arrayHeight = nodes.GetLength(0);
-            int arrayWidth = nodes.GetLength(1);
-
-            if (height < 0 || height > arrayHeight -1)
-            {
-                return null;
-            }
-            if (height -1 < 0)
-            {
-                return null;
-            }
-            Node node = nodes[height-1, width];
-            if (node.Value == '*' || node.Visited)
-            {
-                return null;
-            }
-            return node;
-        }
-
-        public Node GetDown(int height, int width)
-        {
-            int arrayHeight = nodes.GetLength(0);
-            int arrayWidth = nodes.GetLength(1);
-
-            if (height < 0 || height > arrayHeight - 1)
-            {
-                return null;
-            }
-            if (height + 1 > arrayHeight -1 )
-            {
-                return null;
-            }
-            Node node = nodes[height + 1, width];
-            if (node.Value == '*' || node.Visited)
-            {
-                return null;
-            }
-            return node;
-        }
-        #endregion
-
 
         #region DIJKSTRA_ALGO
         private  Node CreateMousePath()

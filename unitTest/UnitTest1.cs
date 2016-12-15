@@ -29,7 +29,6 @@ namespace unitTest
            string[] arr  = configuration.GetArray();
            int line = arr.GetLength(0);
            Assert.IsNotNull(arr);
-           
         }
 
         [TestMethod]
@@ -72,10 +71,6 @@ namespace unitTest
             Assert.AreNotEqual(tuple.Item2, 0);
         }
        
-       
-
-        
-
         [TestMethod]
         public void ShouldReturnRightNodeWithStrategyPattern()
         {

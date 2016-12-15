@@ -5,7 +5,7 @@ namespace MouseTools
 {
     public class MouseConfiguration : ConfigurationManager
     {
-        private const char star = '*';
+        private const char wall = '*';
         private const char root = 'R';
         private const char arrived = 'A';
         private const string logPath = "log";
@@ -53,18 +53,35 @@ namespace MouseTools
             {
                 throw new Exception("the file doesn't contain value inside");
             }
+            CheckLineNode(lines[0]);
+            CheckLineNode(lines[lines.Length - 1]);
             int sizeLine = 0;
             foreach (string value in lines)
             {
                 sizeLine = value.Count();
-                if (value[0] != star || value[sizeLine - 1] != star)
+                if (value[0] != wall || value[sizeLine - 1] != wall)
                 {
                     throw new Exception("No wall in border");
                 }
             }
             return lines;
         }
+        
+        private void CheckLineNode(string line)
+        {
+            for (int i = 0;i<line.Length;i++)
+            {
+                if (line[i]!=wall)
+                {
+                    throw new Exception("The line need to contains only wall");
+                }
+            }
+        }
+        
+        
         #endregion
+
+
 
         #region CREATE_CHECK_NODE_ARRAY
         public override Node[,] GetNodeArray()

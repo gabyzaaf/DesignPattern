@@ -8,7 +8,7 @@ namespace MouseTools.Strategy
 {
    public class Down : IgetNode
     {
-        
+        private const char wall = '*';
         public Node getNode(Node[,] nodes, int height, int width)
         {
             int arrayHeight = nodes.GetLength(0);
@@ -23,7 +23,7 @@ namespace MouseTools.Strategy
                 return null;
             }
             Node node = nodes[height + 1, width];
-            if (node.Value == '*' || node.Visited)
+            if (node.Value == wall || node.Visited)
             {
                 return null;
             }
