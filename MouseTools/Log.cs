@@ -19,6 +19,7 @@ namespace MouseTools
             }catch (Exception e)
             {
                 Console.WriteLine(e.Message);
+                throw e;
             }
             
         }

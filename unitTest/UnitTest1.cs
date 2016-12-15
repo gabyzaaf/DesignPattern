@@ -100,5 +100,33 @@ namespace unitTest
             ConfigurationManager configuration = Wrapper.GetConfiguration("mouse");
             Assert.AreEqual(configuration.GetLog().Path, @"C:\Users\Gabriel\Documents\DesignPaternDocument\");
         }
+
+        [TestMethod]
+        public void ShouldTestTheCatchObservor()
+        {
+            try
+            {
+                ShouldGenerateAnError();
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception.Message);
+            }
+        }
+
+        public static void ShouldGenerateAnError()
+        {
+            try
+            {
+                int[] array = new int[3];
+                throw new Exception("it's not good 2");
+               
+            }
+            catch (Exception e)
+            {
+                Wrapper.WriteLogFile(e.Message);
+                throw e;
+            }
+        }
     }
 }

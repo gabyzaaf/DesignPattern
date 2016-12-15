@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MouseTools.Observor;
+using System;
 
 namespace MouseTools
 {
@@ -28,7 +29,12 @@ namespace MouseTools
                 return null;
             } 
         }
-        
+
+        public static void WriteLogFile(string message)
+        {
+            WrapperObserver wrapper = new WrapperObserver(message);
+        }
+
 
     }
 }
