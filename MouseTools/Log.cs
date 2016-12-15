@@ -4,7 +4,7 @@ namespace MouseTools
 {
     public class Log
     {
-        private string fileName = "Mouse_Log.txt";
+        private string fileName = "Mouse_Game_Log.txt";
         public string Path { get; private set; }
 
         public Log(string sPath)

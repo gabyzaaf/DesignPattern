@@ -37,10 +37,13 @@ namespace MouseTools
         {
             List<Node> pathList = new List<Node>();
             Tuple<int, int> coordonate = GetRootPosition();
+            ChoiceNodeDirection choiceNodeDirection;
+
             if (coordonate==null)
             {
                 throw new Exception("The root node is null ");
             }
+
             int height = coordonate.Item1;
             int width = coordonate.Item2;
             pathList.Add(nodes[height, width]);
@@ -54,28 +57,28 @@ namespace MouseTools
                         return current;
                     }
                     current.Visited = true;
-                    Node right = new ChoiceNodeDirection(new Right()).getNode(nodes, current.Height, current.Width);
+                    Node right = Wrapper.GetNodeDirection("Right", nodes, current.Height, current.Width);
                     if (right!=null)
                     {
                         current.Successor.Add(right);
                         right.Predecessor = current;
                         pathList.Add(right);
                     }
-                    Node left = new ChoiceNodeDirection(new Left()).getNode(nodes, current.Height, current.Width);
+                   Node left = Wrapper.GetNodeDirection("Left", nodes, current.Height, current.Width);
                     if (left != null)
                     {
                         current.Successor.Add(left);
                         left.Predecessor = current;
                         pathList.Add(left);
                     }
-                    Node top = new ChoiceNodeDirection(new Top()).getNode(nodes, current.Height, current.Width);
+                   Node top = Wrapper.GetNodeDirection("Top", nodes, current.Height, current.Width);
                     if (top != null )
                     {
                         current.Successor.Add(top);
                         top.Predecessor = current;
                         pathList.Add(top);
                     }
-                    Node down = new ChoiceNodeDirection(new Down()).getNode(nodes, current.Height, current.Width);
+                    Node down = Wrapper.GetNodeDirection("Down", nodes, current.Height, current.Width);
                     if (down != null)
                     {
                         current.Successor.Add(down);
