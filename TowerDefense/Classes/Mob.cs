@@ -3,36 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TowerDefense.Classes;
 
 namespace TowerDefense
 {
-    public class Mob
+    public class Mob : AbstractTowerMob
     {
-        public string Nom { get; set; }
-        public string Type { get; set; }
-        public int Hp { get; set; }
         public int Vitesse { get; set; }
-        public Dictionary<int, int> Position { get; set; }
 
-        public Mob(String unNom, String unType, int hp, int vitesse, Dictionary<int, int> position)
+        public Mob(String unNom, String unType, int hp,int vitesse) : base(unNom, unType, hp)
         {
-            Nom = unNom;
-            Type = unType;
-            Hp = hp;
             Vitesse = vitesse;
-            Position = position;
         }
 
         public void lancer()
         {
-            int posX = Position.Keys.ElementAt(0);
-            int posY = Position.Values.ElementAt(0);
             //Tant que le mob n'est pas mort il continue d'avancer
-            while (Hp > 0)
-            {
-                posX++;
-                posY++;
-            }
+        }
+
+        public override void attaquer()
+        {
+            Console.WriteLine("mob attaque");
         }
     }
 }

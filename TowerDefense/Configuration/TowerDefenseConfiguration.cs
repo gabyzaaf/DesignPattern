@@ -10,9 +10,10 @@ using MouseTools;
 
 namespace TowerDefense.Classes
 {
-    public class TowerDefenseConfiguration : MouseTools.ConfigurationManager
+    public class TowerDefenseConfiguration : MouseTools.MouseConfiguration
     {
-        
+        //public const char root = 'R';
+        //public const char arrived = 'A';
         public string Map { get; set; }
  
         public Map getMap()
@@ -31,18 +32,18 @@ namespace TowerDefense.Classes
             int nbTowers = Map.Count(x => x == 'T');
             return nbTowers;
         }
-        public List<Mob> getMobs()
+        public int getNbMobs()
         {
-            return new List<Mob>();
+            return int.Parse(settingsByKeys["nbMobs"]);
         }
 
         public int getNbLifes()
         {
-            string resultString = Regex.Match(Map, @"\d+").Value;
-            return int.Parse(resultString);
+
+            return int.Parse(settingsByKeys["nbLifes"]); 
         }
 
-        public override string GetLog()
+        public override Log GetLog()
         {
             throw new NotImplementedException();
         }
@@ -50,7 +51,32 @@ namespace TowerDefense.Classes
        
         public override Node[,] GetNodeArray()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("ca aa");
+            Node[,] nodes = null;
+            string[] array = GetArray();
+            int height = array.GetLength(0);
+            nodes = new Node[height, array[0].Count()];
+            int width = nodes.GetLength(1);
+            int i = 0;
+            foreach (string line in array)
+            {
+                for (int j = 0; j < line.Count(); j++)
+                {
+                    if(line[j] == 'T')
+                    {
+                        nodes[i, j] = new NodeTowerMob(i, j, line[j], new Tower("tower","test",100,100,10));
+                    }
+                    else
+                    {
+                        nodes[i, j] = new Node(i, j, line[j]);
+                    }
+                    
+                }
+                i++;
+            }
+            CheckValue(nodes, root);
+            CheckValue(nodes, arrived);
+            return nodes;
         }
     }
 }

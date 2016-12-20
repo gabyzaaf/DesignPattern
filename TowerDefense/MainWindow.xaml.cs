@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TowerDefense.Classes;
+using TowerDefense.Factory;
 
 namespace TowerDefense
 {
@@ -25,27 +26,20 @@ namespace TowerDefense
         public MainWindow()
         {
             InitializeComponent();
-            Dictionary<int, int> positionTower1 = new Dictionary<int, int>();
-            positionTower1.Add(0, 0);
-            Dictionary<int, int> positionMob1 = new Dictionary<int, int>();
-            positionMob1.Add(0, 0);
-            Tower tower1 = new Tower("archer", "fleche", 100, 100, positionTower1, 50);
-            Mob mob1 = new Mob("loup", "animal", 20, 50, positionMob1);
-            TowerDefenseConfiguration conf = new TowerDefenseConfiguration();
-            string[] nbTowers = conf.getContentFiles();
-            MouseConfiguration ms = new MouseConfiguration();
+            AbstractTowerMob abstractTowerMob = TowerDefenseFactory.buildMobOrTower("Tower", "ben", 90, 0, 100, 100);
+            abstractTowerMob.attaquer();
+
+            AbstractTowerMob abstractTowerMob2 = TowerDefenseFactory.buildMobOrTower("Mob", "ben", 90, 100, 10, 10);
+            abstractTowerMob2.attaquer();
+
+            TowerDefenseConfiguration ms = new TowerDefenseConfiguration();
             string[] nodes = ms.GetArray();
             Node[,] tabNodes = ms.GetNodeArray();
             ToolsTree tt = new ToolsTree(tabNodes);
-            Tuple<int,int> rp =tt.GetRootPosition();
-            Node node = tt.GetRight(rp.Item1, rp.Item2);
+            int nbLifes = ms.getNbLifes();
+            int nbMobs = ms.getNbMobs();
             Console.ReadLine();
-            /*
-             * tableau a fournir a darius
-            tabNodes[0][0] = new Node(1, 1, '*');
-            tabNodes[0][0] = new Node(1, 1, '*');
-            tabNodes[0][0] = new Node(1, 1, '*');
-            tabNodes[0][0] = new Node(1, 1, '*');*/
+            // EN debut de partie inialise les mobs en 0,0
         }
     }
 }

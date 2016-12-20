@@ -56,6 +56,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Classes\AbstractTowerMob.cs" />
+    <Compile Include="Classes\NodeTowerMob.cs" />
     <Compile Include="Classes\TowerDefense.cs" />
     <Compile Include="Configuration\TowerDefenseConfiguration.cs" />
     <Compile Include="Classes\Map.cs" />
@@ -106,7 +108,7 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\MouseGame\MouseTools\MouseTools.csproj">
+    <ProjectReference Include="..\..\..\MouseTools\MouseTools.csproj">
       <Project>{34833dc6-abfc-4165-b62f-bb1f1b308009}</Project>
       <Name>MouseTools</Name>
     </ProjectReference>
