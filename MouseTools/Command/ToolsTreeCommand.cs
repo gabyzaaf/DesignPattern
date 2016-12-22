@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MouseTools.Command
 {
@@ -12,7 +9,7 @@ namespace MouseTools.Command
         private string message;
 
 
-        public Node[,] ReadFile()
+        public Node[,] ReadMap()
         {
           ConfigurationManager configuration = Wrapper.GetConfiguration("mouse");
           Node[,] nodes = configuration.GetNodeArray();

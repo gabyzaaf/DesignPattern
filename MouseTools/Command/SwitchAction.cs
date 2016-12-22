@@ -1,19 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MouseTools.Command
 {
     public class SwitchAction
     {
-        public Node[,] ExecuteReadFile(ImouseCommand command)
+        public Node[,] ExecuteReadMap(ImouseCommand command)
         {
             Node[,] nodes = null;
             try
             {
-                nodes = command.ReadFile();
+                nodes = command.ReadMap();
             }
             catch (Exception exception)
             {

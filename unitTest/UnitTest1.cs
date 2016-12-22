@@ -109,7 +109,7 @@ namespace unitTest
             try
             {
                 ToolsTreeCommand tools = new ToolsTreeCommand();
-                Assert.IsNotNull(tools.ReadFile());
+                Assert.IsNotNull(tools.ReadMap());
             }catch(Exception e)
             {
                 Assert.Fail();
@@ -123,7 +123,7 @@ namespace unitTest
             try
             {
                 ToolsTreeCommand tools = new ToolsTreeCommand();
-                Node[,] nodes = tools.ReadFile();
+                Node[,] nodes = tools.ReadMap();
                 Assert.IsNotNull(tools.MousePath(nodes));
             }
             catch (Exception e)
@@ -140,7 +140,7 @@ namespace unitTest
             {
                 ToolsTreeCommand tools = new ToolsTreeCommand();
                 SwitchAction switchAction = new SwitchAction();
-                Assert.IsNotNull(switchAction.ExecuteReadFile(tools));
+                Assert.IsNotNull(switchAction.ExecuteReadMap(tools));
             }
             catch (Exception exception)
             {
