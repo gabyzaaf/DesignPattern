@@ -4,6 +4,7 @@ using MouseTools;
 using System.Collections.Generic;
 using MouseTools.Strategy;
 using MouseTools.Observor;
+using MouseTools.Command;
 
 namespace unitTest
 {
@@ -101,31 +102,49 @@ namespace unitTest
             Assert.AreEqual(configuration.GetLog().Path, @"C:\Users\Gabriel\Documents\DesignPaternDocument\");
         }
 
+
         [TestMethod]
-        public void ShouldTestTheCatchObservor()
+        public void ShouldGetNodeArrayFromCommandPattern()
         {
             try
             {
-                ShouldGenerateAnError();
-            }
-            catch (Exception exception)
+                ToolsTreeCommand tools = new ToolsTreeCommand();
+                Assert.IsNotNull(tools.ReadFile());
+            }catch(Exception e)
             {
-                Console.WriteLine(exception.Message);
+                Assert.Fail();
             }
+           
         }
 
-        public static void ShouldGenerateAnError()
+        [TestMethod]
+        public void ShouldGetListPathFromCommandPattern()
         {
             try
             {
-                int[] array = new int[3];
-                throw new Exception("it's not good 2");
-               
+                ToolsTreeCommand tools = new ToolsTreeCommand();
+                Node[,] nodes = tools.ReadFile();
+                Assert.IsNotNull(tools.MousePath(nodes));
             }
             catch (Exception e)
             {
-                Wrapper.WriteLogFile(e.Message);
-                throw e;
+                Assert.Fail();
+            }
+
+        }
+
+        [TestMethod]
+        public void ShouldGetNodesArrayFromSwitchAction()
+        {
+            try
+            {
+                ToolsTreeCommand tools = new ToolsTreeCommand();
+                SwitchAction switchAction = new SwitchAction();
+                Assert.IsNotNull(switchAction.ExecuteReadFile(tools));
+            }
+            catch (Exception exception)
+            {
+                Assert.Fail(exception.Message);
             }
         }
     }

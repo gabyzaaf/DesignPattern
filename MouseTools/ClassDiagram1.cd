@@ -1,81 +1,116 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="MouseTools.ConfigurationManager">
-    <Position X="0.5" Y="1.25" Width="1.5" />
+    <Position X="3.5" Y="1" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAEAAAAAAAAAAAAAAAIAABAAAAAIAAAAAAAAAAAA=</HashCode>
       <FileName>ConfigurationManager.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="MouseTools.MouseConfiguration">
-    <Position X="0.5" Y="4.25" Width="1.5" />
+  <Class Name="MouseTools.Log">
+    <Position X="11.25" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ACAAAUAABAAAAAAAAAAgAIAAAACAAEAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAIAAAAAAEAAAAAAAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>Log.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MouseTools.MouseConfiguration">
+    <Position X="3.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACBAAUAABAAAAAAAAAAgAIAAAAAAAEAAAAAEAAAAAAA=</HashCode>
       <FileName>MouseConfiguration.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="MouseTools.Node">
-    <Position X="2.75" Y="2.75" Width="1.5" />
+    <Position X="6" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAARAAAAAAAAAAAAEAAAAAAAAAAAAAgAAABAAA=</HashCode>
       <FileName>Node.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="MouseTools.ToolsTree" Collapsed="true">
-    <Position X="4.75" Y="3" Width="1.5" />
+  <Class Name="MouseTools.ToolsTree">
+    <Position X="11.25" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAIgAAAAohAAAAAAAAAAAAAAAAAAAIAg=</HashCode>
+      <HashCode>AAAAAAAAAAAAAIAAAAAgBAAAAAAAAAAAAAAEAAAAIAg=</HashCode>
       <FileName>ToolsTree.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="MouseTools.Wrapper">
-    <Position X="6.75" Y="4" Width="1.5" />
+    <Position X="7.75" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAEAAAABAAAAAAAAAAAAAAACAAAAAAgAABAAAAAAA=</HashCode>
       <FileName>Wrapper.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="MouseTools.Observor.ErrorLogFile" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Observor\ErrorLogFile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MouseTools.Observor.Observer" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Observor\Observer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MouseTools.Observor.Subject">
+    <Position X="9.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAQAACAAAIAAAAAAAAAAAAAAACA=</HashCode>
+      <FileName>Observor\Subject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MouseTools.Observor.WrapperObserver">
+    <Position X="9.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Observor\WrapperObserver.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Class Name="MouseTools.Strategy.ChoiceNodeDirection">
-    <Position X="2.75" Y="0.5" Width="1.75" />
+    <Position X="6" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAJAAAAAAAAAAAAA=</HashCode>
       <FileName>Strategy\ChoiceNodeDirection.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="MouseTools.Strategy.Down" BaseTypeListCollapsed="true">
-    <Position X="4.75" Y="0.75" Width="1.5" />
+    <Position X="7.75" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAEAAAAAAA=</HashCode>
       <FileName>Strategy\Down.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="MouseTools.Strategy.Left" BaseTypeListCollapsed="true">
-    <Position X="6.5" Y="0.75" Width="1.5" />
+    <Position X="9.5" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAEAAAAAAA=</HashCode>
       <FileName>Strategy\Left.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
+    <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="MouseTools.Strategy.Right" BaseTypeListCollapsed="true">
-    <Position X="6.5" Y="2.25" Width="1.5" />
+    <Position X="7.75" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAEAAAAAAA=</HashCode>
       <FileName>Strategy\Right.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
+    <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="MouseTools.Strategy.Top" BaseTypeListCollapsed="true">
-    <Position X="5" Y="5" Width="1.5" />
+    <Position X="6" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAEAAAAAAA=</HashCode>
       <FileName>Strategy\Top.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Interface Name="MouseTools.IgetNode">
-    <Position X="4.75" Y="3.75" Width="1.5" />
+    <Position X="6" Y="4.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
       <FileName>Strategy\IgetNode.cs</FileName>

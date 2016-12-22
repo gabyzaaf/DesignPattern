@@ -37,7 +37,7 @@ namespace MouseTools
         {
             List<Node> pathList = new List<Node>();
             Tuple<int, int> coordonate = GetRootPosition();
-            ChoiceNodeDirection choiceNodeDirection;
+           
 
             if (coordonate==null)
             {

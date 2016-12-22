@@ -41,6 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Command\ImouseCommand.cs" />
+    <Compile Include="Command\SwitchAction.cs" />
+    <Compile Include="Command\ToolsTreeCommand.cs" />
     <Compile Include="ConfigurationManager.cs" />
     <Compile Include="Log.cs" />
     <Compile Include="Observor\ErrorLogFile.cs" />

@@ -48,6 +48,10 @@ namespace MouseTools
                 throw new Exception("the value from the key file in the dictionnary is null or empty  ");
             }
             string file = settingsByKeys[filePath];
+            if (!File.Exists(file))
+            {
+                throw new Exception("the file node exist in your hard disk");
+            }
             string[] lines = File.ReadAllLines(file);
             if (lines == null || lines.Count() == 0)
             {
