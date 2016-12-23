@@ -9,6 +9,7 @@ namespace TowerDefense.Factory
 {
     public class TowerDefenseFactory
     {
+        // ces deux méthodes (buildMob,buildTower) n'ont pas d'interet car tu utilise la methode buildMobOrTower
         public static Mob buildMob(String nom, String type, int hp, int vitesse)
         {
             return new Mob(nom, type, hp, vitesse);
