@@ -22,6 +22,8 @@ namespace TowerDefense.Factory
 
         public static AbstractTowerMob buildMobOrTower(String nom, String type, int hp, int vitesse, int degat, int range)
         {
+             // Tu dois utiliser la methode equals de la class string pour comparer 2 chaine.
+             // Essai d'utiliser ceci : string.Equals(val, "astringvalue", StringComparison.OrdinalIgnoreCase) ce qui permet d'eviter la casse .
             if (nom == "Tower")
             {
                 return new Tower(nom, type, hp, degat, range);
