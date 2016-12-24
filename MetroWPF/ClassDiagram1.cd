@@ -7,32 +7,69 @@
       <FileName>App.xaml.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="MetroWPF.LogError">
+    <Position X="5.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>LogError.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Class Name="MetroWPF.MainWindow" BaseTypeListCollapsed="true">
-    <Position X="3" Y="0.5" Width="2" />
+    <Position X="3" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAEAAAAAAAAAABAAAAAAAAgAAAAAAAAAA=</HashCode>
       <FileName>MainWindow.xaml.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
+  <Class Name="MetroWPF.MetroDataSource">
+    <Position X="5.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAACAAAAAAEAAAAAIAAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>MetroDataSource.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Class Name="MetroWPF.MetroViewModel">
-    <Position X="5.75" Y="0.5" Width="1.5" />
+    <Position X="3" Y="3" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAA=</HashCode>
       <FileName>MetroViewModel.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="MetroWPF.Properties.Resources">
-    <Position X="0.5" Y="3" Width="1.75" />
+    <Position X="0.5" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
     </TypeIdentifier>
   </Class>
   <Class Name="MetroWPF.Properties.Settings">
-    <Position X="3" Y="3" Width="1.75" />
+    <Position X="0.5" Y="4.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
     </TypeIdentifier>
   </Class>
+  <Class Name="MetroWPF.Strategy.MetroCheckEmptyError" BaseTypeListCollapsed="true">
+    <Position X="10.5" Y="3.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>CQAAAAAAAAACMAEAAAAAAABAAAAAAAAAAAAAAAAgAgA=</HashCode>
+      <FileName>Strategy\MetroCheckEmptyError.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MetroWPF.Strategy.MetroCheckExistError" BaseTypeListCollapsed="true">
+    <Position X="7.75" Y="3.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>CQAAAAAAAAACMAEAAAAAAABAAAAAAAAAAAAAAAAgAgA=</HashCode>
+      <FileName>Strategy\MetroCheckExistError.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="MetroWPF.Strategy.IMetroCheckLignesStations">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAACIAEAAAAAAABAAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Strategy\IMetroCheckLignesStations.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

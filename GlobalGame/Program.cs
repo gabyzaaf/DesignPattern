@@ -29,6 +29,8 @@ namespace GlobalGame
             }
         }
 
+
+
         public void pause(object game)
         {
 
@@ -48,15 +50,16 @@ namespace GlobalGame
             string prenom = ConfigurationManager.AppSettings["prenom"];
             Console.WriteLine("Je m'appelle {0} {1}", prenom, nom);
             Menus m1 = new Menus();
-            string nameGame;
+            //string nameGame = "";
             Console.WriteLine("Saisir le nom d'un jeu");
-            nameGame = Console.ReadLine();
 
-            m1.start(nameGame);
+            //nameGame = Console.ReadLine();
+            //m1.start(nameGame);
+
+
         }
 
-
-
+        
     }
 }
 

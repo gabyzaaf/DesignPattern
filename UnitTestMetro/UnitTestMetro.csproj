@@ -36,6 +36,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -58,8 +59,13 @@
       <Project>{0aa239db-92a2-4d0b-ae55-9835a49d3a43}</Project>
       <Name>MetroLib</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MetroWPF\MetroWPF.csproj">
+      <Project>{f5c5fd31-9b2f-4bab-aead-113e5e1eedf0}</Project>
+      <Name>MetroWPF</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
     <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <Choose>

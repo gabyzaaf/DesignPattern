@@ -65,12 +65,17 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="LogError.cs" />
+    <Compile Include="Strategy\IMetroCheckLignesStations.cs" />
+    <Compile Include="Strategy\MetroCheckEmptyError.cs" />
+    <Compile Include="Strategy\MetroCheckExistError.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MetroDataSource.cs" />
     <Compile Include="MetroViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
