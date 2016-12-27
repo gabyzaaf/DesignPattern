@@ -16,7 +16,7 @@ namespace GlobalGame
 
         public void start(String nameGame)
         {
-            // il faut utiliser la methode equal de string pour comparer 2 chaines.
+            
             if(nameGame == "metro")
             {
                 MetroViewModel mvm = new MetroViewModel();

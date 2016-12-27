@@ -69,12 +69,6 @@ namespace UnitTestMetro
         }
 
         [TestMethod]
-        public void CheckSourceLogIsNotNull()
-        {
-            Assert.IsNotNull(mds.sourceLog);
-        }
-
-        [TestMethod]
         public void CheckNombredeLignesAreNotEqualZero()
         {
             Manager = new ManagerPlan("Plan Métro Parisien", tabStations, tabLignes);

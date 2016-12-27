@@ -67,6 +67,7 @@
     </Compile>
     <Compile Include="LogError.cs" />
     <Compile Include="Strategy\IMetroCheckLignesStations.cs" />
+    <Compile Include="Strategy\MetroCheck.cs" />
     <Compile Include="Strategy\MetroCheckEmptyError.cs" />
     <Compile Include="Strategy\MetroCheckExistError.cs" />
     <Compile Include="MainWindow.xaml.cs">
