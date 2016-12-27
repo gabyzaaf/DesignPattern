@@ -35,9 +35,10 @@ namespace TowerDefense
             TowerDefenseConfiguration ms = new TowerDefenseConfiguration();
             string[] nodes = ms.GetArray();
             Node[,] tabNodes = ms.GetNodeArray();
-            ToolsTree tt = new ToolsTree(tabNodes);
+            ToolsTree tt = new MobPath(tabNodes);
             int nbLifes = ms.getNbLifes();
             int nbMobs = ms.getNbMobs();
+            List<Node> parcoursMobs = tt.GetPathList();
             Console.ReadLine();
             // EN debut de partie inialise les mobs en 0,0
         }
