@@ -9,27 +9,13 @@ namespace TowerDefense.Factory
 {
     public class TowerDefenseFactory
     {
-        // ces deux méthodes (buildMob,buildTower) n'ont pas d'interet car tu utilise la methode buildMobOrTower
-        public static Mob buildMob(String nom, String type, int hp, int vitesse)
-        {
-            return new Mob(nom, type, hp, vitesse);
-        }
-
-
-        public static Tower buildTower(String nom, String type, int hp, int degat, int range)
-        {
-            return new Tower(nom, type, hp, degat, range);
-        }
-
         public static AbstractTowerMob buildMobOrTower(String nom, String type, int hp, int vitesse, int degat, int range)
         {
-             // Tu dois utiliser la methode equals de la class string pour comparer 2 chaine.
-             // Essai d'utiliser ceci : string.Equals(val, "astringvalue", StringComparison.OrdinalIgnoreCase) ce qui permet d'eviter la casse .
-            if (nom == "Tower")
+            if(String.Equals(nom, "Tower",StringComparison.OrdinalIgnoreCase))
             {
                 return new Tower(nom, type, hp, degat, range);
             }
-            if (nom == "Mob")
+            if (String.Equals(nom, "Mob", StringComparison.OrdinalIgnoreCase))
             {
                 return new Mob(nom, type, hp, vitesse);
             }
