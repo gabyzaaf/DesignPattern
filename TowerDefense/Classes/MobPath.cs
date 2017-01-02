@@ -2,9 +2,11 @@
 using MouseTools.Strategy;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
 
 namespace TowerDefense.Classes
 {
@@ -90,5 +92,39 @@ namespace TowerDefense.Classes
             return pathList;
 
         }
+
+        public void InitTimer()
+        {
+            Stopwatch s = new Stopwatch();
+            s.Start();
+            while (s.Elapsed < TimeSpan.FromSeconds(600))
+            {
+                Timer myTimer = new Timer();
+                myTimer.Elapsed += new ElapsedEventHandler(myEvent);
+                // Set it to go off every five seconds
+                myTimer.Interval = 1000;
+                // And start it        
+                myTimer.Enabled = true;
+            }
+
+            s.Stop();
+            
+        }
+
+        private void myEvent(object source, ElapsedEventArgs e) {
+            Console.WriteLine("test");
+        }
+        public Node[,] deplacerMob(Mob mob, List<Node> path, Node[,] nodeArray)
+        {
+            Node[,] nodeArrayToReturn = nodeArray;
+            // on recopie les emplacements de déplacements des mobs dans la carte nodeArray
+            // Faudrait que babar affiche les mobs aux diffents emplacements en effacant au fur et a mesure les anciens emplacements
+            foreach (Node n in path)
+            {
+                nodeArrayToReturn[n.Height, n.Width] = new NodeTowerMob(1, 1, nodeArray[n.Height, n.Width].Value, mob);
+            }
+            return nodeArrayToReturn;
+        }
     }
 }
+

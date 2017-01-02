@@ -15,7 +15,7 @@ namespace TowerDefense.Classes
         //public const char root = 'R';
         //public const char arrived = 'A';
         public string Map { get; set; }
- 
+
         public Map getMap()
         {
             return new Map();
@@ -28,7 +28,7 @@ namespace TowerDefense.Classes
 
         public int getNbTower()
         {
-            
+
             int nbTowers = Map.Count(x => x == 'T');
             return nbTowers;
         }
@@ -44,7 +44,7 @@ namespace TowerDefense.Classes
         public int getNbLifes()
         {
 
-            return int.Parse(settingsByKeys["nbLifes"]); 
+            return int.Parse(settingsByKeys["nbLifes"]);
         }
 
         public override Log GetLog()
@@ -52,7 +52,7 @@ namespace TowerDefense.Classes
             throw new NotImplementedException();
         }
 
-       
+
         public override Node[,] GetNodeArray()
         {
             Node[,] nodes = null;
@@ -68,15 +68,10 @@ namespace TowerDefense.Classes
                     switch (line[j])
                     {
                         case 'T':
-                            List<AbstractTowerMob> towerList = new List<AbstractTowerMob>();
-                            towerList.Add(new Tower("Tower", "test", 100, 100, 10));
-                            nodes[i, j] = new NodeTowerMob(i, j, line[j], towerList);
+                            nodes[i, j] = new NodeTowerMob(i, j, line[j], new Tower("Tower", "test", 100, 100, 10));
                             break;
                         case 'R':
-                            // On met tout les mobs sur le node de départ
-                            List<AbstractTowerMob> mobList = new List<AbstractTowerMob>();
-                            mobList = createMobList();
-                            nodes[i, j] = new NodeTowerMob(i, j, line[j], mobList);
+                            nodes[i, j] = new NodeTowerMob(i, j, line[j], new Mob("Mob", getMobType(), 100, 10));
                             break;
                         default:
                             nodes[i, j] = new Node(i, j, line[j]);
@@ -98,12 +93,30 @@ namespace TowerDefense.Classes
         public List<AbstractTowerMob> createMobList()
         {
             List<AbstractTowerMob> mobsList = new List<AbstractTowerMob>();
-            for(int a = 0; a < getNbMobs(); a++)
+            for (int a = 0; a < getNbMobs(); a++)
             {
-                mobsList.Add(new Mob("Mob", getMobType()+" "+a, 100, 10));
+                mobsList.Add(new Mob("Mob", getMobType() + " " + a, 100, 10));
             }
 
             return mobsList;
         }
-    }
+
+        public List<AbstractTowerMob> getMobsFromMap(Node[,] nodeArrayMap)
+        {
+            List<AbstractTowerMob> mobs = new List<AbstractTowerMob>();
+            foreach(Node node in nodeArrayMap)
+            {
+                if(node.GetType() == typeof(NodeTowerMob))
+                {
+                    NodeTowerMob nodeToAdd = (NodeTowerMob)node;
+                    if (nodeToAdd.Type.GetType() == typeof(Mob))
+                    {
+                        mobs.Add(nodeToAdd.Type);
+                    }
+                }
+            }
+            return mobs;
+        }
+
+    } 
 }

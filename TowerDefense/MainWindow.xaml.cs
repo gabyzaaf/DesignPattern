@@ -33,12 +33,23 @@ namespace TowerDefense
             abstractTowerMob2.attaquer();
 
             TowerDefenseConfiguration ms = new TowerDefenseConfiguration();
+            // on recupere la mab sous forme de tableau de node
             string[] nodes = ms.GetArray();
             Node[,] tabNodes = ms.GetNodeArray();
-            ToolsTree tt = new MobPath(tabNodes);
-            int nbLifes = ms.getNbLifes();
-            int nbMobs = ms.getNbMobs();
-            List<Node> parcoursMobs = tt.GetPathList();
+            MobPath mp = new MobPath(tabNodes);
+
+            // on creer la liste de node correspondant au parcours des mobs
+            List<Node> parcoursMobs = mp.GetPathList();
+            //recupération des mobs de la map (pour linstant un seul mob)
+            List<AbstractTowerMob> mobsFromMap = new List<AbstractTowerMob>();
+            mobsFromMap = ms.getMobsFromMap(tabNodes);
+            Node[,] tabNodes2;
+
+            // Prendre les mobs issus de la carte
+            // pour linstant la map avec les mobs a toute leur places de déplacements
+            // tableau de noeud avec le deplacement du mob
+            tabNodes2 = mp.deplacerMob((Mob)mobsFromMap[0], parcoursMobs, tabNodes);
+            
             Console.ReadLine();
         }
     }

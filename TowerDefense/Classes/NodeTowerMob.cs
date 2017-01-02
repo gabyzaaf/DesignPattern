@@ -9,8 +9,8 @@ namespace TowerDefense.Classes
 {
     public class NodeTowerMob : Node
     {
-        public List<AbstractTowerMob> Type { get; set; }
-        public NodeTowerMob(int height, int width, char value, List<AbstractTowerMob> type) : base(height, width, value)
+        public AbstractTowerMob Type { get; set; }
+        public NodeTowerMob(int height, int width, char value, AbstractTowerMob type) : base(height, width, value)
         {
             Type = type;
         }
