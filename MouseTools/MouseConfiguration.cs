@@ -6,8 +6,8 @@ namespace MouseTools
     public class MouseConfiguration : ConfigurationManager
     {
         private const char wall = '*';
-        private const char root = 'R';
-        private const char arrived = 'A';
+        protected const char root = 'R';
+        protected const char arrived = 'A';
         private const string logPath = "log";
         private const string filePath = "file";
 
