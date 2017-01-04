@@ -7,8 +7,8 @@ namespace MouseTools
     public class ToolsTree
     {
         public Node[,] nodes { get; private set; }
-        private const char root = 'R';
-        private const char wall = '*';
+        protected const char root = 'R';
+        protected const char wall = '*';
 
         public ToolsTree(Node[,] nodeArray)
         {
