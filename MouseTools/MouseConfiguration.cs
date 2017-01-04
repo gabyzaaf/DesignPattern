@@ -109,7 +109,7 @@ namespace MouseTools
             return nodes;
         }
 
-        private void CheckValue(Node[,] array, char value)
+        public void CheckValue(Node[,] array, char value)
         {
             int foundValue = 0;
             for (int i = 0; i < array.GetLength(0); i++)
