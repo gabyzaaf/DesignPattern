@@ -92,7 +92,7 @@ namespace MouseTools
         }
         #endregion
 
-        public List<Node> GetPathList()
+        public virtual List<Node> GetPathList()
         {
             List<Node> pathList = new List<Node>();
             Node finalPath = CreateMousePath();
