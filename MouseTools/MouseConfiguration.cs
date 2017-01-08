@@ -5,7 +5,7 @@ namespace MouseTools
 {
     public class MouseConfiguration : ConfigurationManager
     {
-        private const char wall = '*';
+        protected const char wall = '*';
         protected const char root = 'R';
         protected const char arrived = 'A';
         private const string logPath = "log";
@@ -71,7 +71,7 @@ namespace MouseTools
             return lines;
         }
         
-        private void CheckLineNode(string line)
+        public void CheckLineNode(string line)
         {
             for (int i = 0;i<line.Length;i++)
             {
