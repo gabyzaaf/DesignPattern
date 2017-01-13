@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MetroWPF.Strategy
 {
-    class MetroCheck
+    public class MetroCheck
     {
         private IMetroCheckLignesStations imetro;
 

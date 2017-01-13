@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MetroLib;
+using System.Reflection;
 
 namespace MetroWPF
 {
@@ -31,16 +32,29 @@ namespace MetroWPF
             DessineToutesLesStations(ratioX, ratioY);
         }
 
+        private Brush PickRandomBrush(Random rnd)
+        {
+            Brush result = Brushes.Transparent;
+            Type brushesType = typeof(Brushes);
+            PropertyInfo[] properties = brushesType.GetProperties();
+            int random = rnd.Next(properties.Length);
+            result = (Brush)properties[random].GetValue(null, null);
+            return result;
+        }
+
         private void DessineToutesLesStations(double ratioX, double ratioY)
         {
+            Random rdm = new Random();
             foreach (var uneStation in MVM.Manager.DicoStations.Values)
             {
                 Ellipse r = new Ellipse
                 {
+                    //Fill = PickRandomBrush(rdm),
                     Fill = Brushes.BlueViolet,
                     Width = 6,
                     Height = 6,
                     ToolTip = uneStation.Nom
+                    
                 };
                 Canvas.SetLeft(r, uneStation.X*ratioX - 3);
                 Canvas.SetTop(r, uneStation.Y*ratioY - 3);
@@ -67,6 +81,7 @@ namespace MetroWPF
                             Y2 = uneStation.Y * ratioY
                         };
                         Surface.Children.Add(r);
+                        
                     }
                     stationPrecedente = uneStation;
                 }

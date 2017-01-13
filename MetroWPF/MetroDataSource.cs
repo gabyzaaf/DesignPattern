@@ -9,21 +9,23 @@ namespace MetroWPF
 {
     public class MetroDataSource
     {
-
-        public string nomFichierLignes { get; private set; }
-        public string nomFichierStations { get; private set; }
-        public string sourceLignes { get; private set; }
-        public string sourceStation { get; private set; }
-        public string sourceLog { get; private set; }
-        
-        public MetroDataSource()
+        public static string nomFichierLignes()
         {
-            nomFichierLignes = ConfigurationManager.AppSettings["fichierLignes"];
-            nomFichierStations = ConfigurationManager.AppSettings["fichierStations"];
-            sourceLignes = ConfigurationManager.AppSettings["sourceLignes"];
-            sourceStation = ConfigurationManager.AppSettings["sourceStations"];
-            sourceLog = ConfigurationManager.AppSettings["sourceLog"];
+            return ConfigurationManager.AppSettings["fichierLignes"];
         }
+        public static string nomFichierStations()
+        {
+            return ConfigurationManager.AppSettings["fichierStations"];
+        }
+        public static string sourceLignes()
+        {
+            return ConfigurationManager.AppSettings["sourceLignes"];
+        }
+        public static string sourceStation()
+        {
+            return ConfigurationManager.AppSettings["sourceStations"];
+        }
+
 
 
 

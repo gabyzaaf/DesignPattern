@@ -6,79 +6,24 @@ namespace MetroWPF.Strategy
     public class MetroCheckExistError : IMetroCheckLignesStations
     {
         #region données membres
-        string lignes;
-        string stations;
-        MetroDataSource mds = new MetroDataSource();
-        #endregion
+        string lignes = MetroDataSource.sourceLignes()+MetroDataSource.nomFichierLignes();
+        string stations = MetroDataSource.sourceStation() + MetroDataSource.nomFichierStations();
 
-        #region encapsulation
-        public string fichierLignes
-        {
-            get
-            {
-                return mds.nomFichierLignes;
-            }
-
-            set
-            {
-                fichierStation = mds.nomFichierLignes;
-            }
-        }
-
-        public string fichierStation
-        {
-            get
-            {
-                return mds.nomFichierStations;
-            }
-
-            set
-            {
-                fichierStation = mds.nomFichierStations;
-            }
-        }
-
-        public string sourceLignes
-        {
-            get
-            {
-                return mds.sourceLignes;
-            }
-
-            set
-            {
-                sourceLignes = mds.sourceLignes;
-            }
-        }
-
-        public string sourceStation
-        {
-            get
-            {
-                return mds.sourceStation;
-            }
-
-            set
-            {
-                sourceStation = mds.sourceStation;
-            }
-        }
         #endregion
 
         #region methode
         public string checkLigne()
         {
-            lignes = sourceLignes + fichierLignes;
             try
             {
                 if (File.Exists(lignes))
                 {
-                    LogError.WriteToFile("Le fichier " +fichierLignes+ " existe", "Program");
+                    LogError.WriteToFile("Le fichier " + MetroDataSource.nomFichierLignes() + " existe", "Program");
                     return "exist";
                 }
                 else
                 {
-                    throw new Exception("Le fichier " + fichierLignes + " n'existe pas il y a une erreur sur la source");
+                    throw new Exception("Le fichier " + MetroDataSource.nomFichierLignes() + " n'existe pas il y a une erreur sur la source");
                 }
 
             }
@@ -91,17 +36,16 @@ namespace MetroWPF.Strategy
 
         public string checkStation()
         {
-            stations = sourceStation + fichierStation;
             try
             {
                 if (File.Exists(stations))
                 {
-                    LogError.WriteToFile("Le fichier " + fichierStation + " existe", "Program");
+                    LogError.WriteToFile("Le fichier " + MetroDataSource.nomFichierStations() + " existe", "Program");
                     return "exist";
                 }
                 else
                 {
-                    throw new Exception("Le fichier " + fichierStation + " n'existe pas il y a une erreur sur la source");
+                    throw new Exception("Le fichier " + MetroDataSource.nomFichierStations() + " n'existe pas il y a une erreur sur la source");
                 }
 
             }

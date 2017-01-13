@@ -3,6 +3,8 @@ using System.Text;
 using MetroLib;
 using System;
 using MetroWPF.Strategy;
+using MetroLib.Factory;
+using System.Windows;
 
 namespace MetroWPF
 {
@@ -13,26 +15,31 @@ namespace MetroWPF
 
         public MetroViewModel()
         {
-            MetroCheckExistError mcExist = new MetroCheckExistError();
-            MetroCheckEmptyError mcEmpty = new MetroCheckEmptyError();
-
+            
             MetroCheck mcheckEmpty = new MetroCheck(new MetroCheckEmptyError());
             MetroCheck mcheckExist = new MetroCheck(new MetroCheckExistError());
 
-            mcheckExist.checkLigne();
-            mcheckExist.checkStation();
-            mcheckEmpty.checkLigne();
-            mcheckEmpty.checkStation();
+            if (mcheckExist.checkLigne() == "exist" && mcheckExist.checkStation() == "exist")
+            {
+                if(mcheckEmpty.checkLigne() == "noEmpty" && mcheckEmpty.checkStation() == "noEmpty")
+                {
+                    string[] tabStations = File.ReadAllLines(MetroDataSource.nomFichierStations(), Encoding.Default);
+                    string[] tabLignes = File.ReadAllLines(MetroDataSource.nomFichierLignes(), Encoding.Default);
 
-            /*mcExist.checkLigne();
-            mcExist.checkStation();
-            mcEmpty.checkLigne();
-            mcEmpty.checkStation();*/
+                    Manager = ManagerPlanFactory.createManager("Plan Métro Parisien", tabStations, tabLignes);
+                }
+                else
+                {
+                    MessageBox.Show("Le fichier " + MetroDataSource.nomFichierStations() + " est vide");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Le fichier " + MetroDataSource.nomFichierStations() + " n'existe pas il y a une erreur sur la source");
+            }
 
-            string[] tabStations = File.ReadAllLines("stations.data", Encoding.Default);
-            string[] tabLignes = File.ReadAllLines("lignes.data", Encoding.Default);
 
-            Manager = new ManagerPlan("Plan Métro Parisien", tabStations, tabLignes);
+            
 
         }
     }

@@ -35,14 +35,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <!-- A reference to the entire .NET Framework is automatically included -->
-    <None Include="ClassDiagram1.cd" />
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Composant\Arc.cs" />
     <Compile Include="Chemin.cs" />
     <Compile Include="Composant\ElementGraphe.cs" />
     <Compile Include="Composant\Graphe.cs" />
+    <Compile Include="Factory\ManagerPlanFactory.cs" />
     <Compile Include="Ligne.cs" />
     <Compile Include="ManagerPlan.cs" />
     <Compile Include="Composant\Noeud.cs" />
@@ -53,6 +50,9 @@
     <Reference Include="System.Configuration">
       <HintPath>..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\System.Configuration.dll</HintPath>
     </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="UML_MetroLib.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

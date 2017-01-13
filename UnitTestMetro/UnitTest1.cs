@@ -5,6 +5,7 @@ using MetroWPF;
 using System.IO;
 using System.Text;
 using MetroWPF.Strategy;
+using MetroLib.Factory;
 
 namespace UnitTestMetro
 {
@@ -12,80 +13,80 @@ namespace UnitTestMetro
     public class UnitTest1
     {
 
-        string[] tabStations = File.ReadAllLines("stations.data", Encoding.Default);
-        string[] tabLignes = File.ReadAllLines("lignes.data", Encoding.Default);
-        public ManagerPlan Manager { get; set; }
+        MetroCheck mcheckEmpty = new MetroCheck(new MetroCheckEmptyError());
+        MetroCheck mcheckExist = new MetroCheck(new MetroCheckExistError());
 
-        MetroCheckExistError mcExist = new MetroCheckExistError();
-        MetroCheckEmptyError mcEmpty = new MetroCheckEmptyError();
-        MetroDataSource mds = new MetroDataSource();
+        public ManagerPlan Manager { get; set; }
+        string[] tabStations = File.ReadAllLines(MetroDataSource.nomFichierStations(), Encoding.Default);
+        string[] tabLignes = File.ReadAllLines(MetroDataSource.nomFichierLignes(), Encoding.Default);
+
 
         [TestMethod]
         public void CheckLignesDataFileExist()
         {
-            Assert.AreEqual("exist", mcExist.checkLigne());
+            Assert.AreEqual("exist", mcheckExist.checkLigne());
         }
 
         [TestMethod]
         public void CheckStationsDataFileExist()
         {
-            Assert.AreEqual("exist", mcExist.checkStation());
+            Assert.AreEqual("exist", mcheckExist.checkStation());
         }
 
         [TestMethod]
         public void CheckLignesDataFileNoEmpty()
         {
-            Assert.AreEqual("noEmpty", mcEmpty.checkLigne());
+            Assert.AreEqual("noEmpty", mcheckEmpty.checkLigne());
         }
 
         [TestMethod]
         public void CheckStationsDataFileNoEmpty()
         {
-            Assert.AreEqual("noEmpty", mcEmpty.checkStation());
+            Assert.AreEqual("noEmpty", mcheckEmpty.checkStation());
         }
 
         [TestMethod]
         public void CheckNameLigneIsNotNull()
         {
-            Assert.IsNotNull(mds.nomFichierLignes);
+            Assert.IsNotNull(MetroDataSource.nomFichierLignes());
         }
 
         [TestMethod]
         public void CheckNameStationIsNotNull()
         {
-            Assert.IsNotNull(mds.nomFichierStations);
+            Assert.IsNotNull(MetroDataSource.nomFichierStations());
         }
 
         [TestMethod]
         public void CheckSourceLigneIsNotNull()
         {
-            Assert.IsNotNull(mds.sourceLignes);
+            Assert.IsNotNull(MetroDataSource.sourceLignes());
         }
 
         [TestMethod]
         public void CheckSourceStationIsNotNull()
         {
-            Assert.IsNotNull(mds.sourceStation);
+            Assert.IsNotNull(MetroDataSource.sourceStation());
         }
 
         [TestMethod]
         public void CheckNombredeLignesAreNotEqualZero()
         {
-            Manager = new ManagerPlan("Plan Métro Parisien", tabStations, tabLignes);
+            Manager = ManagerPlanFactory.createManager("Plan Métro Parisien", tabStations, tabLignes);
             Assert.AreNotEqual(0,Manager.NombredeLignes);
         }
 
         [TestMethod]
         public void CheckNombredeStationsAreNotEqualZero()
         {
-            Manager = new ManagerPlan("Plan Métro Parisien", tabStations, tabLignes);
+            Manager = ManagerPlanFactory.createManager("Plan Métro Parisien", tabStations, tabLignes);
             Assert.AreNotEqual(0, Manager.NombredeStations);
         }
 
         [TestMethod]
         public void CheckNombredeTunnelsAreNotEqualZero()
         {
-            Manager = new ManagerPlan("Plan Métro Parisien", tabStations, tabLignes);
+            Manager = ManagerPlanFactory.createManager("Plan Métro Parisien", tabStations, tabLignes);
             Assert.AreNotEqual(0, Manager.NombredeTunnels);
         }
 
