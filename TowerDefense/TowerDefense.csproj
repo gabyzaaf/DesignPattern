@@ -60,6 +60,7 @@
     <Compile Include="Classes\MobPath.cs" />
     <Compile Include="Classes\NodeTowerMob.cs" />
     <Compile Include="Classes\TowerDefense.cs" />
+    <Compile Include="Classes\ZoneTir.cs" />
     <Compile Include="Configuration\TowerDefenseConfiguration.cs" />
     <Compile Include="Classes\Map.cs" />
     <Compile Include="Classes\Mob.cs" />

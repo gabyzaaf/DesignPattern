@@ -26,11 +26,6 @@ namespace TowerDefense
         public MainWindow()
         {
             InitializeComponent();
-            AbstractTowerMob abstractTowerMob = TowerDefenseFactory.buildMobOrTower("Tower", "Tower1", 90, 0, 100, 100);
-            abstractTowerMob.attaquer();
-
-            AbstractTowerMob abstractTowerMob2 = TowerDefenseFactory.buildMobOrTower("Mob", "Mob1", 90, 100, 10, 10);
-            abstractTowerMob2.attaquer();
 
             TowerDefenseConfiguration ms = new TowerDefenseConfiguration();
             // on recupere la mab sous forme de tableau de node
@@ -41,15 +36,15 @@ namespace TowerDefense
             // on creer la liste de node correspondant au parcours des mobs
             List<Node> parcoursMobs = mp.GetPathList();
             //recupération des mobs de la map (pour linstant un seul mob)
-            List<AbstractTowerMob> mobsFromMap = new List<AbstractTowerMob>();
+            List<Mob> mobsFromMap = new List<Mob>();
             mobsFromMap = ms.getMobsFromMap(tabNodes);
             Node[,] tabNodes2;
 
             // Prendre les mobs issus de la carte
             // pour linstant la map avec les mobs a toute leur places de déplacements
             // tableau de noeud avec le deplacement du mob
-            tabNodes2 = mp.deplacerMob((Mob)mobsFromMap[0], parcoursMobs, tabNodes);
-            
+            tabNodes2 = mp.deplacerMob(mobsFromMap[0], parcoursMobs, tabNodes);
+            // Pour les attaques de tours faire une classe zonedetir si le passe sur la zone on lui retir de la vie
             Console.ReadLine();
         }
     }
