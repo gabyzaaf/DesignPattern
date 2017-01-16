@@ -6,30 +6,10 @@
         xmlns:local="clr-namespace:projet_Cdiez"
         mc:Ignorable="d"
         Title="MainWindow" Height="800" Width="800">
-    <Grid KeyDown="keydownEvent">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
+    <Grid>
+        <Label x:Name="label" Content="sélectionnez votre jeu préféré :)" HorizontalAlignment="Left" Margin="95,58,0,0" VerticalAlignment="Top" FontSize="36"/>
+        <Button x:Name="btnMouse" Content="Mouse Game" HorizontalAlignment="Left" Margin="297,169,0,0" VerticalAlignment="Top" Width="112" Click="btnMouse_Click"/>
+        <Button x:Name="btnTowerD" Content="Tower Defense" HorizontalAlignment="Left" Margin="297,217,0,0" VerticalAlignment="Top" Width="112" Click="btnTowerD_Click"/>
+        <Button x:Name="btnSubwaySimul" Content="Subway Simulator" HorizontalAlignment="Left" Margin="297,270,0,0" VerticalAlignment="Top" Width="112" Click="btnSubwaySimul_Click"/>
     </Grid>
 </Window>

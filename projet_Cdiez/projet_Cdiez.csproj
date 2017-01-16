@@ -56,6 +56,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="GamesGUI.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -68,6 +72,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GamesGUI.xaml.cs">
+      <DependentUpon>GamesGUI.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -109,9 +116,17 @@
     <Resource Include="wall.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\DesignPattern-1.0.1\MouseTools\MouseTools.csproj">
+    <ProjectReference Include="..\..\..\..\Cours\ESGI 5AL %282016-2017%29\C#\DesignPattern-1.0.1\MouseTools\MouseTools.csproj">
       <Project>{34833dc6-abfc-4165-b62f-bb1f1b308009}</Project>
       <Name>MouseTools</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Cours\ESGI 5AL %282016-2017%29\C#\DesignPattern-Benji\TowerDefense\TowerDefense.csproj">
+      <Project>{b503961a-6282-4802-a36d-27f119f040d1}</Project>
+      <Name>TowerDefense</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Cours\ESGI 5AL %282016-2017%29\C#\DesignPattern-Christian\GlobalGame\GlobalGame.csproj">
+      <Project>{25d23d0d-0089-4826-98ad-6de0bd751862}</Project>
+      <Name>GlobalGame</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\TowerDefenseLibrary-master\TowerDefenseTools\TowerDefenseTools\TowerDefenseTools.csproj">
       <Project>{3c10b0d2-d4bc-40b0-9715-b09fa2ed4a95}</Project>
