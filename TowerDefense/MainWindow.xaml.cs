@@ -39,12 +39,14 @@ namespace TowerDefense
             List<Mob> mobsFromMap = new List<Mob>();
             mobsFromMap = ms.getMobsFromMap(tabNodes);
             Node[,] tabNodes2;
-
-            // Prendre les mobs issus de la carte
-            // pour linstant la map avec les mobs a toute leur places de déplacements
-            // tableau de noeud avec le deplacement du mob
+            // on créer le déplacement des mobs sur la map
             tabNodes2 = mp.deplacerMob(mobsFromMap[0], parcoursMobs, tabNodes);
-            // Pour les attaques de tours faire une classe zonedetir si le passe sur la zone on lui retir de la vie
+            // on recupére l'emplacement de la mort du mob
+            Dictionary<int, int> placeOfDeath = mp.getPlaceOfDeath(tabNodes2);
+            // On place la mort du mob dans le parcours du mob
+            List<Node> parcoursWithDeath= mp.getParcoursWithDeath(placeOfDeath, parcoursMobs);
+            // on recuperer le nb de vies restantes au joueur après sa mort
+            int nbLifesRestantes = mp.getNbVies(tabNodes2, int.Parse(System.Configuration.ConfigurationManager.AppSettings["nbLifes"]));
             Console.ReadLine();
         }
     }

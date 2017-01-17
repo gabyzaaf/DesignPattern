@@ -103,23 +103,86 @@ namespace TowerDefense.Classes
                     if(nodeArray[n.Height, n.Width].GetType() == typeof(NodeTowerMob))
                     {
                         NodeTowerMob nt = (NodeTowerMob)nodeArray[n.Height, n.Width];
+                        // par défaut les tours enlève 10 de vies au mob
                         if(nt.isZoneTir == true)
                         {
                             mob.Hp = mob.Hp - 10;
                         }
                         if(mob.Hp != 0)
                         {
-                        nodeArrayToReturn[n.Height, n.Width] = new NodeTowerMob(1, 1, nodeArray[n.Height, n.Width].Value, new Mob(mob.Nom, mob.Type, mob.Hp, mob.Vitesse), nt.isZoneTir);
+                            nodeArrayToReturn[n.Height, n.Width] = new NodeTowerMob(n.Height, n.Width, nodeArray[n.Height, n.Width].Value, new Mob(mob.Nom, mob.Type, mob.Hp, mob.Vitesse), nt.isZoneTir);
                         }
+                        // Si le mob n'a plus de vie alors il est mort on place un M sur la map pour identifier l'emplacement de sa mort
                         if(mob.Hp == 0)
                         {
-                        nodeArrayToReturn[n.Height, n.Width] = new NodeTowerMob(1, 1, 'M', null, nt.isZoneTir);
-                    }
+                            nodeArrayToReturn[n.Height, n.Width] = new NodeTowerMob(n.Height, n.Width, 'M', null, nt.isZoneTir);
+                        }
                 }
                     
             }
             return nodeArrayToReturn;
         }
+
+        /*
+         * Méthode qui permet de retourner l'emplacement de la mort du mob
+         * 
+         */
+        public Dictionary<int,int> getPlaceOfDeath(Node[,] map) {
+            Dictionary<int, int> placeOfDeath = new Dictionary<int, int>();
+            int i = 0;
+            foreach(Node n in map){
+                if(n.Value == 'M')
+                {
+                    placeOfDeath.Add(n.Height, n.Width);
+                }
+            }
+            return placeOfDeath;
+           
+        }
+
+        /*
+         * Méthode qui permet de placer l'emplacement de la mort du mob dans le parcours du mob(ou il y a M en value)
+         * 
+         */
+        public List<Node> getParcoursWithDeath(Dictionary<int, int> placeOfDeath, List<Node> parcoursMob)
+        {
+            List<Node> parcoursWithDeath = new List<Node>();
+            
+            for(int i = 0; i < parcoursMob.Count; i++)
+            {
+                if (placeOfDeath.Count != 0)
+                {
+                    if(parcoursMob[i].Height == placeOfDeath.Keys.ElementAt(placeOfDeath.Count - 1) && parcoursMob[i].Width == placeOfDeath.Values.ElementAt(placeOfDeath.Count - 1))
+                    {
+                        parcoursWithDeath.Add(new Node(parcoursMob[i].Height, parcoursMob[i].Width, 'M'));
+                    }
+                }
+                else
+                {
+                    parcoursWithDeath.Add(new Node(parcoursMob[i].Height, parcoursMob[i].Width, parcoursMob[i].Value));
+                }
+            }
+            return parcoursWithDeath;
+        }
+
+        public int getNbVies(Node[,] map, int nbVies)
+        {
+            int nbLifes = nbVies;
+            bool isMobDied = false;
+            foreach (Node n in map)
+            {
+                // Si le mob n'est pas mort alors on perd une vie
+                if (n.Value == 'M')
+                {
+                    isMobDied = true;
+                }
+            }
+            if (isMobDied == false)
+            {
+                nbLifes--;
+            }
+
+            return nbLifes;
+        }
     }
 }
-

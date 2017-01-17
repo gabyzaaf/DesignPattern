@@ -77,6 +77,12 @@ namespace TowerDefense.Classes
             return int.Parse(settingsByKeys["nbLifes"]);
         }
 
+        public int getMobLife()
+        {
+
+            return int.Parse(settingsByKeys["vieMob"]);
+        }
+
         public override Log GetLog()
         {
             throw new NotImplementedException();
@@ -92,7 +98,7 @@ namespace TowerDefense.Classes
             int width = nodes.GetLength(1);
             int i = 0;
             AbstractTowerMob tower = TowerDefenseFactory.buildMobOrTower("Tower", "Tower1", 90, 0, 100, 100);
-            AbstractTowerMob mob = TowerDefenseFactory.buildMobOrTower("Mob", getMobType(), 50, 100, 10, 10);
+            AbstractTowerMob mob = TowerDefenseFactory.buildMobOrTower("Mob", getMobType(), getMobLife(), 100, 10, 10);
             string previous = "";
             foreach (string line in array)
             {
