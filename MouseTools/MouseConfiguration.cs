@@ -9,7 +9,7 @@ namespace MouseTools
         protected const char root = 'R';
         protected const char arrived = 'A';
         private const string logPath = "log";
-        private const string filePath = "file";
+        private const string filePath = "map";
 
         
         #region LOG_PATH
