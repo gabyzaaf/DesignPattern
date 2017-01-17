@@ -156,11 +156,12 @@ namespace TowerDefense.Classes
                     {
                         parcoursWithDeath.Add(new Node(parcoursMob[i].Height, parcoursMob[i].Width, 'M'));
                     }
+                    else
+                    {
+                        parcoursWithDeath.Add(new Node(parcoursMob[i].Height, parcoursMob[i].Width, parcoursMob[i].Value));
+                    }
                 }
-                else
-                {
-                    parcoursWithDeath.Add(new Node(parcoursMob[i].Height, parcoursMob[i].Width, parcoursMob[i].Value));
-                }
+                
             }
             return parcoursWithDeath;
         }
