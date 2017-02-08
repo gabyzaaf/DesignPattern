@@ -106,22 +106,18 @@ namespace projet_Cdiez
                     }
                     if (n.Value == 'T')
                     {
-                        Console.WriteLine("coucou suce");
                         (Content as Grid).Children.Add(bitmapToImage(btmTower, n.Height, n.Width));
                     }
                     if (n.Value == 'R')
                     {
-                        Console.WriteLine("coucou suce");
                         (Content as Grid).Children.Add(bitmapToImage(btmDoorStart, n.Height, n.Width));
                     }
                     if (n.Value == 'A')
                     {
-                        Console.WriteLine("coucou suce");
                         (Content as Grid).Children.Add(bitmapToImage(btmDoorEnd, n.Height, n.Width));
                     }
                     if (n.Value == '+')
                     {
-                        Console.WriteLine("coucou suce");
                         (Content as Grid).Children.Add(bitmapToImage(btmPath, n.Height, n.Width));
                     }
                 }
